@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Планувальник подорожей</title>
+</head>
+<body>
+    <h1>Планувальник подорожей</h1>
+    <form method="post">
+        <label for="city_count">Кількість міст для відвідування:</label>
+        <input type="number" id="city_count" name="city_count" required>
+        <br>
+
+        {% for i in range(1, city_count + 1) %}
+        <h2>Місто {{ i }}</h2>
+        <label for="city_name_{{ i }}">Назва міста:</label>
+        <input type="text" id="city_name_{{ i }}" name="city_name_{{ i }}" required>
+        <br>
+
+        <label for="interests_{{ i }}">Інтереси (через кому):</label>
+        <input type="text" id="interests_{{ i }}" name="interests_{{ i }}" required>
+        <br>
+
+        <label for="visit_date_{{ i }}">Дата відвідування (рррр-мм-дд):</label>
+        <input type="text" id="visit_date_{{ i }}" name="visit_date_{{ i }}" required>
+        <br>
+
+        <label for="budget_{{ i }}">Бюджет:</label>
+        <input type="number" id="budget_{{ i }}" name="budget_{{ i }}" required>
+        <br>
+
+        <label for="days_{{ i }}">Кількість днів у місті:</label>
+        <input type="number" id="days_{{ i }}" name="days_{{ i }}" required>
+        <br>
+        {% endfor %}
+
+        <input type="submit" value="Згенерувати маршрут">
+    </form>
+</body>
+</html>
